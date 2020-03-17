@@ -1,7 +1,6 @@
 module Main (main) where
 
-import Coronews (someFunc)
-
+import Covid ()
 
 main :: IO ()
-main = someFunc
+main = putStrLn "hello"

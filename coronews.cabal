@@ -22,11 +22,17 @@ source-repository head
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Coronews
-                       
+  exposed-modules:     Covid
+                     , Display
+
 
   build-depends:       base ^>= 4.13.0.0
-                     
+                     , generic-lens
+                     , lens
+                     , prettyprinter ^>= 1.6.1
+                     , prettyprinter-ansi-terminal ^>= 1.1.1
+                     , time ^>= 1.9.3
+
 
   ghc-options:         -Wall
                        -Wincomplete-uni-patterns
@@ -47,7 +53,7 @@ executable coronews
 
   build-depends:       base ^>= 4.13.0.0
                      , coronews
-                     
+
 
   ghc-options:         -Wall
                        -threaded
