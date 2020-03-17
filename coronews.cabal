@@ -1,0 +1,66 @@
+cabal-version:       2.0
+name:                coronews
+version:             0.0.0.0
+synopsis:            CLI interface to COVID-19 stats API.
+description:         CLI interface to COVID-19 stats API.
+homepage:            https://github.com/patrickt/coronews
+bug-reports:         https://github.com/patrickt/coronews/issues
+license:             GPL-3
+license-file:        LICENSE
+author:              Patrick Thomson
+maintainer:          patrick.william.thomson@gmail.com
+copyright:           2020 Patrick Thomson
+category:            Utility
+build-type:          Simple
+extra-doc-files:     README.md
+                   , CHANGELOG.md
+tested-with:         GHC == 8.8.1
+
+source-repository head
+  type:                git
+  location:            https://github.com/patrickt/coronews.git
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Coronews
+                       
+
+  build-depends:       base ^>= 4.13.0.0
+                     
+
+  ghc-options:         -Wall
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+                       -Wmissing-deriving-strategies
+
+  default-language:    Haskell2010
+
+executable coronews
+  hs-source-dirs:      app
+  main-is:             Main.hs
+
+  build-depends:       base ^>= 4.13.0.0
+                     , coronews
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+                       -Wmissing-deriving-strategies
+
+  default-language:    Haskell2010
