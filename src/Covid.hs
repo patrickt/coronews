@@ -63,8 +63,8 @@ instance Display Report where
   display r =
     Doc.vcat [ "China:    " <+> Display.yellow (display (r ^. #mainlandChina))
              , "Other:    " <+> Display.yellow (display (r ^. #otherLocations))
-             , "Confirmed:" <+> Display.yellow (display (r ^. #otherLocations)) <+> delta (r ^. #deltaConfirmed)
-             , "Recovered:" <+> Display.green (display (r ^. #otherLocations)) <+> delta (r ^. #deltaRecovered . non 0)
+             , "Confirmed:" <+> Display.yellow (display (r ^. #totalConfirmed)) <+> delta (r ^. #deltaConfirmed)
+             , "Recovered:" <+> Display.green (display (r ^. #totalRecovered)) <+> delta (r ^. #deltaRecovered . non 0)
              ] <> Doc.hardline
     where
       delta n
