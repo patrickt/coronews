@@ -1,8 +1,8 @@
-{-# LANGUAGE DeriveAnyClass, DeriveGeneric, DerivingStrategies, GeneralizedNewtypeDeriving, OverloadedLabels,
-             OverloadedStrings, RecordWildCards, TypeApplications #-}
+{-# LANGUAGE DeriveAnyClass, DeriveGeneric, DerivingStrategies, FlexibleInstances, GeneralizedNewtypeDeriving,
+             OverloadedLabels, OverloadedStrings, RecordWildCards, TypeApplications #-}
 module Covid
-  ( Stats (..)
-  , Reports
+  ( Stats
+  , Report
   , download
   ) where
 
@@ -71,11 +71,8 @@ instance Display Report where
         | n > 0 = Doc.parens ("+" <> Display.red (display n))
         | otherwise = Doc.parens (Display.green (display n))
 
-newtype Reports = Reports { getReports :: [Report]}
-  deriving newtype FromJSON
-
-instance Display Reports where
-  display = display . maximumBy (comparing (view #reportDate)) . getReports
+instance Display [Report] where
+  display = display . maximumBy (comparing (view #reportDate))
 
 download :: FromJSON a => String -> IO (Either DecodingError a)
 download url = do

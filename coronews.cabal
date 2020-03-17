@@ -53,7 +53,6 @@ library
                      , prettyprinter ^>= 1.6.1
                      , streaming
                      , streaming-utils
-                     , streaming-bytestring
                      , text
                      , time ^>= 1.9.3
                      , transformers
@@ -65,7 +64,6 @@ executable coronews
 
   build-depends:       base ^>= 4.13.0.0
                      , coronews
-                     , generic-monoid
                      , optparse-applicative
 
   ghc-options:         -threaded
