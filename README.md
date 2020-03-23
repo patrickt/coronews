@@ -5,6 +5,14 @@
 
 CLI interface to COVID-19 stats API. Features handsome colored output.
 
+```
+~ $ coronews
+Confirmed: 372563
+Recovered: 100885
+Deaths:    16377
+Updated:   Mon, 23 Mar 2020 18:55:06 UTC
+```
+
 # Compilation
 
 1. Download [`ghcup`](https://www.haskell.org/ghcup/).
